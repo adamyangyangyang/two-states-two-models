@@ -41,44 +41,139 @@
     <div class="chapter">Chapter 04 &middot; Demographics &amp; Enrollment</div>
     <h1>Who these school systems serve.</h1>
     <p class="question">Who do California and Texas public schools serve &mdash; and how is that changing?</p>
-    <p class="claim">[WRITE YOUR OPENING CLAIM &mdash; 2&ndash;3 sentences connecting demographic reality to schooling need. Example: &ldquo;California and Texas enroll similarly large, majority-minority student populations, but the two states differ in poverty concentration, language diversity, and enrollment trajectory &mdash; and those differences shape what their school systems must pay for.&rdquo;]</p>
+    <p class="claim">California and Texas educate the two largest public student populations in the United States, and both now serve majority-minority populations with large Latino enrollments. But the two states are pulling apart demographically. California is older, wealthier on paper, and losing residents; Texas is younger, growing rapidly, and adding households at one of the highest rates in the country. Those demographic trajectories shape the budgets, housing markets, and tax bases that fund the schools.</p>
   </header>
 
-  <section class="prose">
+  <section class="prose has-dropcap">
     <h2>A &mdash; State population context</h2>
-    <div class="todo">
-      <strong>To write / chart</strong>
-      Compare CA and TX on: race/ethnicity, poverty rate, language diversity (share speaking a language other than English at home), urban/suburban/rural share. 1&ndash;2 paragraphs of prose plus a stacked bar chart of racial composition.
-    </div>
-    <div class="todo">
-      <strong>Figure to add</strong>
-      Stacked bar &mdash; racial/ethnic composition of CA vs TX population. You can reuse the <code>.stack</code> component from the Finance page (see <code>styles.css</code>). Data from U.S. Census.
-    </div>
 
-    <h2>B &mdash; Public school enrollment</h2>
-    <div class="todo">
-      <strong>To write / chart</strong>
-      Compare total K&ndash;12 public enrollment in CA vs TX, and how large LAUSD and HISD are relative to their states. Note the overall trend: California enrollment has been declining, Texas has been growing. That matters for budgets.
-    </div>
-    <div class="todo">
-      <strong>Figure to add</strong>
-      Line chart &mdash; CA vs TX public school enrollment, roughly 2010 to present. A simple two-line chart is plenty. You can build it inline with SVG, or drop a static chart image.
-    </div>
+    <p>California had an estimated population of 39.4 million in July 2024; Texas, 31.3 million. Both rank in the top two nationally. But the trajectories are diverging sharply. California&rsquo;s population has <em>declined</em> by roughly 0.3% since April 2020, while Texas&rsquo;s has <em>grown</em> by 7.3% over the same period. Texas is, in effect, adding the equivalent of a mid-sized state every few years, while California is losing residents to other states and seeing its enrollment base shrink. For schools, that means two very different pressures: Texas districts face growth pressure, building costs, and teacher-hiring pressure; California districts face enrollment decline and the budget consequences that follow when funding is tied to average daily attendance.</p>
 
-    <h2>C &mdash; Why demographics matter for schools</h2>
-    <div class="todo">
-      <strong>To write</strong>
-      Do not treat demographics as decoration. Connect each demographic fact to schooling:
-      &bull; poverty &rarr; student need, staffing costs, program costs<br>
-      &bull; language diversity &rarr; English-learner programs, bilingual staffing<br>
-      &bull; enrollment change &rarr; budget pressure (declining enrollment shrinks budgets in some formulas; growth strains facilities)<br>
-      &bull; concentration &rarr; segregation effects
-      1&ndash;2 paragraphs.
-    </div>
+    <p>Texas is also a younger state. About 24.5% of Texans are under 18, compared with 21.3% of Californians; Texas has proportionally more school-age children relative to its total population. California, by contrast, has a larger share of residents aged 65 and over (16.5% vs 13.9%), which affects both tax bases and political priorities.</p>
   </section>
 
+  <figure class="fig">
+    <figcaption class="fig-label">
+      <span><span class="fig-num">Fig. 4.1</span>Population change, 2020&ndash;2024</span>
+      <span>U.S. Census</span>
+    </figcaption>
+    <div class="bars">
+      <div class="bar-row">
+        <div class="br-label">California</div>
+        <div class="bar-track"><div class="bar-fill is-ca" style="width: 4%"></div></div>
+        <div class="br-value">&minus;0.3%</div>
+      </div>
+      <div class="bar-row">
+        <div class="br-label">Texas</div>
+        <div class="bar-track"><div class="bar-fill is-tx" style="width: 100%"></div></div>
+        <div class="br-value">+7.3%</div>
+      </div>
+    </div>
+    <div class="fig-caption">Percent change in total population, April 2020 to July 2024. California is the only large U.S. state to lose residents in this period; Texas gained roughly 2.1 million.</div>
+  </figure>
+
   <section class="prose">
-    <p>[Transition sentence. Example: &ldquo;Having established who these systems serve, the next chapter turns to how they are paid for &mdash; and how that payment structure interacts with the demographic realities just described.&rdquo;]</p>
+    <h2>B &mdash; Racial and linguistic diversity</h2>
+
+    <p>Both states are majority-minority. The share of residents identifying as white alone and not Hispanic is 33.6% in California and 38.7% in Texas. The two states also have almost exactly the same Hispanic population share &mdash; 40.8% in California and 40.3% in Texas &mdash; which is one of the most important reasons these two systems are comparable on student need. Where the states differ is in the rest of the composition. California&rsquo;s population is 17.0% Asian alone, Texas&rsquo;s only 6.4%. Texas&rsquo;s population is 13.7% Black alone, more than twice California&rsquo;s 6.4%. Both realities have direct schooling consequences: California&rsquo;s larger Asian population includes substantial recent-immigrant communities with specific English-learner needs; Texas&rsquo;s larger Black population is concentrated disproportionately in urban districts like HISD and Dallas ISD.</p>
+
+    <p>Language diversity amplifies the story. In California, 44.4% of residents age five and over speak a language other than English at home; in Texas, 35.1%. California is also more foreign-born: 27.0% of Californians were born outside the United States, compared with 17.6% of Texans. Both figures are well above the national average, but California&rsquo;s linguistic complexity is roughly a third larger. That translates directly into schooling costs &mdash; bilingual staffing, translation services, English-learner programming, outreach to immigrant families.</p>
+  </section>
+
+  <figure class="fig">
+    <figcaption class="fig-label">
+      <span><span class="fig-num">Fig. 4.2</span>Racial and ethnic composition</span>
+      <span>U.S. Census, 2020&ndash;2024</span>
+    </figcaption>
+    <table class="compare">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="th-ca">California</th>
+          <th class="th-tx">Texas</th>
+          <th>U.S.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hispanic or Latino</td>
+          <td>40.8%</td>
+          <td>40.3%</td>
+          <td>20.0%</td>
+        </tr>
+        <tr>
+          <td>White alone, not Hispanic</td>
+          <td>33.6%</td>
+          <td>38.7%</td>
+          <td>57.5%</td>
+        </tr>
+        <tr>
+          <td>Asian alone</td>
+          <td>17.0%</td>
+          <td>6.4%</td>
+          <td>6.7%</td>
+        </tr>
+        <tr>
+          <td>Black alone</td>
+          <td>6.4%</td>
+          <td>13.7%</td>
+          <td>13.7%</td>
+        </tr>
+        <tr>
+          <td>Foreign-born</td>
+          <td>27.0%</td>
+          <td>17.6%</td>
+          <td>14.1%</td>
+        </tr>
+        <tr>
+          <td>Non-English at home (age 5+)</td>
+          <td>44.4%</td>
+          <td>35.1%</td>
+          <td>22.3%</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="fig-caption">Both states are majority-minority. California is more linguistically diverse; Texas has a larger Black population share. Hispanic population shares are nearly identical.</div>
+  </figure>
+
+  <section class="prose">
+    <h2>C &mdash; Economic foundation and the tax base</h2>
+
+    <p>The demographics that matter most for the finance chapter ahead are the economic ones &mdash; and here the two states look very different. California has higher median household income ($99,122 vs $78,476) but also a lower poverty rate (11.8% vs 13.4%) and a much smaller share of uninsured residents under 65 (6.9% vs 19.2%). On income alone, Californians are better off on paper.</p>
+
+    <p>But the truly striking number is housing. The median value of owner-occupied homes is $734,700 in California and $283,800 in Texas &mdash; a ratio of roughly 2.6 to 1. That single fact is central to understanding why each state&rsquo;s finance system is built the way it is. California&rsquo;s housing values are so high that if school funding were driven by uncapped local property taxes, wealthy coastal districts would dwarf everyone else; Proposition 13&rsquo;s cap was a direct response to that pressure. Texas&rsquo;s lower housing values spread over a larger and faster-growing population mean the local property tax base is real but thinner per pupil, which is why a district like HISD, with weaker tax capacity per student, struggles to reach the funding floor even when it taxes at high rates.</p>
+  </section>
+
+  <div class="quickfacts">
+    <div class="quickfact is-ca">
+      <div class="qf-state">California</div>
+      <div class="qf-num">$734,700</div>
+      <div class="qf-label">median home value</div>
+    </div>
+    <div class="quickfact is-tx">
+      <div class="qf-state">Texas</div>
+      <div class="qf-num">$283,800</div>
+      <div class="qf-label">median home value</div>
+    </div>
+    <div class="quickfact is-ca">
+      <div class="qf-state">California</div>
+      <div class="qf-num">11.8%</div>
+      <div class="qf-label">persons in poverty</div>
+    </div>
+    <div class="quickfact is-tx">
+      <div class="qf-state">Texas</div>
+      <div class="qf-num">13.4%</div>
+      <div class="qf-label">persons in poverty</div>
+    </div>
+  </div>
+  <p style="font-size: 0.85rem; color: var(--ink-soft); font-style: italic; margin: 0.6rem auto; max-width: var(--col-mid); padding: 0 var(--space-m);">California residents earn more on average but live inside a housing market roughly two and a half times more expensive than the Texas housing market. Both matter for school finance &mdash; in opposite directions.</p>
+
+  <section class="prose">
+    <h2>D &mdash; Why all of this matters for schools</h2>
+
+    <p>Demographics are not decoration for this project; they are part of the funding mechanism itself. Texas&rsquo;s faster population growth and younger age structure mean its schools face sustained enrollment growth &mdash; new facilities, new hiring, new buses. California&rsquo;s enrollment is shrinking, which under an average-daily-attendance funding model means shrinking district budgets even when per-pupil rates stay constant. Texas&rsquo;s higher poverty rate and larger uninsured population mean schools pick up more of the costs of out-of-school need. California&rsquo;s far higher linguistic diversity means English-learner programming is a larger part of any realistic budget. And California&rsquo;s housing values, combined with Proposition 13, are exactly why state dollars do so much of the heavy lifting in California school finance &mdash; the local property tax base, even on extraordinarily valuable homes, is capped by law.</p>
+
+    <p>These are not independent facts sitting next to each other. They feed directly into the next chapter, which is about the finance structures that convert all of this demographic reality into dollars and, eventually, into classrooms.</p>
   </section>
 
   <nav class="next" aria-label="Next chapter">

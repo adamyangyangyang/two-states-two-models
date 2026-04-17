@@ -40,41 +40,127 @@
   <header class="page-head">
     <div class="chapter">Chapter 06 &middot; Outcomes &amp; Inequality</div>
     <h1>What the systems actually produce.</h1>
-    <p class="question">What outcomes do these systems produce &mdash; and, more importantly, what patterns of <em>opportunity and inequality</em> appear in them?</p>
-    <p class="claim">[WRITE YOUR OPENING CLAIM &mdash; 2&ndash;3 sentences. This page is NOT a scoreboard. The claim should warn against simple &ldquo;which state is better&rdquo; framing and instead set up the real question: how do outcome gaps map onto the structural differences established in the last chapter?]</p>
+    <p class="question">What outcomes do these systems produce &mdash; and what patterns of opportunity and inequality appear in them?</p>
+    <p class="claim">This page is deliberately not a scoreboard. Drawing on the Stanford Education Data Archive (SEDA), it compares two things: what students score on average, and how much they actually improve each year in school. The picture is more complicated than the finance story alone would predict. Texas students score closer to the national average than California students do, even though California spends more per pupil. But California&rsquo;s students learn slightly more per grade &mdash; a better proxy for what schools contribute &mdash; and the more important pattern in both states is that within-state inequality by race, income, and language is large.</p>
   </header>
 
-  <div class="todo" style="max-width: var(--col-read); margin: 0 auto var(--space-l);">
-    <strong>Writing warning</strong>
-    Do not make this page a scoreboard. Do not ask &ldquo;which state is better.&rdquo; Ask &ldquo;what patterns of opportunity and inequality appear in the outcomes?&rdquo; The evidence should be read <em>through</em> the structural story you built in Ch. 3 and Ch. 5.
-  </div>
+  <section class="prose has-dropcap">
+    <h2>A &mdash; A note on how to read these numbers</h2>
+
+    <p>The Educational Opportunity Project at Stanford uses standardized test data to express outcomes in units of <em>grade levels</em>. A score of &ldquo;0&rdquo; represents the national average; a score of &ldquo;&minus;0.63 grade levels&rdquo; means a state&rsquo;s students are testing as if they were about two-thirds of a school year behind the national average. Two measures matter most here. <strong>Average test scores</strong> capture the total set of educational opportunities students experience &mdash; at home, in their neighborhoods, and in school combined. <strong>Learning rates</strong> capture how much students improve per year while they are in school, and are generally considered a better proxy for school quality alone. Thinking about both together is the whole point.</p>
+
+    <h2>B &mdash; The surprising pattern in averages</h2>
+
+    <p>On average test scores, Texas looks better than California. Texas students score about 0.12 grade levels below the national average; California students score 0.63 grade levels below. That gap is not trivial &mdash; it is roughly half a school year. And it runs in the direction opposite to the funding story in the previous chapter: the state that spends more per pupil has lower average test scores.</p>
+
+    <p>Before interpreting that as an indictment of California, it is worth pausing on what average scores actually measure. SEDA makes the point directly: average scores reflect everything shaping a student&rsquo;s test performance, including early childhood experiences, neighborhood resources, housing stability, and family income. California&rsquo;s cost of living, its very large foreign-born and English-learner population, and its acute housing crisis all depress the conditions that feed into average test scores, even when schools themselves are doing substantial work. That does not excuse the scores. But it does mean average scores are a poor measure of schools&rsquo; contribution in isolation.</p>
+  </section>
+
+  <figure class="fig">
+    <figcaption class="fig-label">
+      <span><span class="fig-num">Fig. 6.1</span>Average test scores vs. national baseline</span>
+      <span>SEDA, grades 3&ndash;8, 2009&ndash;2019</span>
+    </figcaption>
+    <div class="bars">
+      <div class="bar-row">
+        <div class="br-label">California</div>
+        <div class="bar-track"><div class="bar-fill is-ca" style="width: 100%"></div></div>
+        <div class="br-value">&minus;0.63</div>
+      </div>
+      <div class="bar-row">
+        <div class="br-label">Texas</div>
+        <div class="bar-track"><div class="bar-fill is-tx" style="width: 19%"></div></div>
+        <div class="br-value">&minus;0.12</div>
+      </div>
+    </div>
+    <div class="fig-caption">Both states score below the national average. California&rsquo;s gap is roughly five times larger than Texas&rsquo;s. But average scores reflect out-of-school conditions as much as school quality &mdash; see the learning rates comparison below.</div>
+  </figure>
 
   <section class="prose">
-    <h2>A &mdash; Overall outcomes</h2>
-    <div class="todo">
-      <strong>To write / chart</strong>
-      Compare statewide indicators: NAEP 4th and 8th grade reading/math scores, graduation rates, and (if available) college readiness / advanced coursework participation. Use the grouped bar component from <code>styles.css</code> or build a simple SVG. 1 paragraph of interpretation.
-    </div>
-    <div class="todo">
-      <strong>Figure to add</strong>
-      Grouped bar chart &mdash; NAEP scale scores, CA vs TX, by grade and subject. Include the U.S. average as a reference line.
-    </div>
+    <h2>C &mdash; Learning rates: what schools actually add</h2>
 
-    <h2>B &mdash; Gaps within states</h2>
-    <div class="todo">
-      <strong>To write / chart</strong>
-      This is the most important section on the page. Compare within-state gaps by: race/ethnicity, family income (free/reduced lunch), English-learner status. Compare <em>how big the gaps are</em>, not just absolute scores. If within-state gaps are similar, that&rsquo;s meaningful. If one state has smaller gaps, that&rsquo;s meaningful too.
-    </div>
-    <div class="todo">
-      <strong>Figure to add</strong>
-      Subgroup gap figure &mdash; side-by-side comparison of within-state achievement gaps. A paired-bar or dumbbell chart works well here.
-    </div>
+    <p>When the question shifts from &ldquo;how are students doing&rdquo; to &ldquo;how much are they learning each year while they are in school,&rdquo; the ranking flips. California students learn about 4% more per grade than the U.S. average; Texas students, about 1% more. Both states are above the national mean on this measure, but California is further above. That is consistent with the argument that California&rsquo;s better-resourced schools are doing more per year of schooling than Texas&rsquo;s, even if their students arrive at school less prepared on average.</p>
 
-    <h2>C &mdash; Interpretation</h2>
-    <div class="todo">
-      <strong>To write</strong>
-      Resist both the &ldquo;money doesn&rsquo;t matter&rdquo; and &ldquo;money explains everything&rdquo; conclusions. Instead: funding matters, but its effects are mediated by governance, segregation, implementation, and teacher labor markets. Tie back to the finance chapter. 2 paragraphs.
+    <p>Put differently: California schools are lifting kids a bit faster; California students simply have farther to climb. That is not the story anyone tells when they stop at average scores.</p>
+  </section>
+
+  <figure class="fig">
+    <figcaption class="fig-label">
+      <span><span class="fig-num">Fig. 6.2</span>Learning rates relative to national average</span>
+      <span>SEDA, per-grade growth</span>
+    </figcaption>
+    <div class="bars">
+      <div class="bar-row">
+        <div class="br-label">California</div>
+        <div class="bar-track"><div class="bar-fill is-ca" style="width: 80%"></div></div>
+        <div class="br-value">+4%</div>
+      </div>
+      <div class="bar-row">
+        <div class="br-label">Texas</div>
+        <div class="bar-track"><div class="bar-fill is-tx" style="width: 20%"></div></div>
+        <div class="br-value">+1%</div>
+      </div>
     </div>
+    <div class="fig-caption">Learning rates measure how much scores improve per year in school. Both states outperform the national average; California&rsquo;s margin is about four times larger. This is a better proxy for school quality than the raw averages above.</div>
+  </figure>
+
+  <section class="prose">
+    <h2>D &mdash; Gaps within states</h2>
+
+    <p>The most important pattern on this page is not the state-to-state comparison at all. It is the size of the gaps <em>within</em> each state, because those gaps are the real test of whether a finance and governance system is reaching the students it claims to prioritize.</p>
+
+    <p>The gaps are substantial in both states. But California&rsquo;s are actually larger than Texas&rsquo;s on most comparisons. The white/Black gap in average test scores is 2.80 grade levels in California and 2.09 in Texas. The white/Hispanic gap is 2.27 in California and 1.62 in Texas. The non-poor/poor gap &mdash; the cleanest indicator of how well a state is serving its low-income students &mdash; is 2.75 in California and 2.12 in Texas. Those are differences of roughly half a grade level to two-thirds of a grade level, and they go in the same direction across every major subgroup comparison.</p>
+  </section>
+
+  <figure class="fig">
+    <figcaption class="fig-label">
+      <span><span class="fig-num">Fig. 6.3</span>Within-state subgroup gaps in average test scores</span>
+      <span>SEDA, grade levels</span>
+    </figcaption>
+    <table class="compare">
+      <thead>
+        <tr>
+          <th>Gap between groups</th>
+          <th class="th-ca">California</th>
+          <th class="th-tx">Texas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>White &mdash; Black</td>
+          <td>2.80</td>
+          <td>2.09</td>
+        </tr>
+        <tr>
+          <td>White &mdash; Hispanic</td>
+          <td>2.27</td>
+          <td>1.62</td>
+        </tr>
+        <tr>
+          <td>White &mdash; Native American</td>
+          <td>2.29</td>
+          <td>1.15</td>
+        </tr>
+        <tr>
+          <td>Non-poor &mdash; poor</td>
+          <td>2.75</td>
+          <td>2.12</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="fig-caption">Figures are in grade-level units. Positive numbers mean the first group scores higher. California has larger within-state gaps than Texas on every comparison shown. The exception, not shown, is the white/Asian gap &mdash; Asian students outperform white students in both states, and by a wider margin in Texas.</div>
+  </figure>
+
+  <section class="prose">
+    <p>That finding complicates the tidy version of the thesis. A state that has done more to equalize per-pupil funding should, in principle, show <em>smaller</em> within-state gaps, not larger ones. Several things are probably going on. California&rsquo;s Latino and Black student populations include larger shares of recent immigrants, English learners, and students in extremely high-cost housing markets &mdash; conditions that depress scores independently of school quality. California&rsquo;s residential segregation, particularly in coastal metros, may also concentrate need in ways that undermine equalization. And most importantly, equalized <em>dollars</em> do not automatically translate into equalized <em>services</em>: LCFF&rsquo;s supplemental and concentration grants are supposed to follow high-need students, but whether those dollars reach the classrooms and programs they were weighted for is a real, documented question in the California research literature.</p>
+
+    <h2>E &mdash; Trends over time</h2>
+
+    <p>Trajectories add a final piece of the picture. Between 2009 and 2018, California&rsquo;s average test scores improved by about 0.04 grade levels per year &mdash; a slow but real rise in overall educational opportunity. Texas&rsquo;s average scores fell slightly over the same period, by about 0.01 grade levels per year. Learning rate trends tell a quieter version of the same story: California&rsquo;s learning rates held roughly flat; Texas&rsquo;s learning rates declined by about 0.01 grade levels per year. Neither state is dramatically improving or collapsing, but the direction is upward in California and flat-to-downward in Texas. That is consistent with the hypothesis that sustained investment and formula-based equalization do produce slow gains over time, even when they do not show up in a single-year snapshot.</p>
+
+    <h2>F &mdash; What the outcomes suggest, honestly</h2>
+
+    <p>Taken together, the SEDA data support a modest version of the thesis rather than a triumphant one. California&rsquo;s higher funding appears to contribute to somewhat better learning rates and a gentle upward trend in scores, which is what you would hope to see from a state that spends more per student. But California&rsquo;s within-state gaps are larger than Texas&rsquo;s, which suggests that equalized state funding alone does not close opportunity gaps for high-need students. Money matters, but its effects depend on how dollars reach classrooms, how segregated those classrooms are, and how much out-of-school need accumulates before students ever arrive. Texas&rsquo;s lower-resource system, meanwhile, produces smaller gaps partly because it produces less growth for everyone. Smaller gaps are not always evidence of a more equitable system; sometimes they are evidence of a flatter ceiling.</p>
   </section>
 
   <div class="takeaway">
@@ -85,7 +171,7 @@
   </div>
 
   <section class="prose">
-    <p>[Closing transition. Example: &ldquo;Statewide averages and subgroup gaps are useful but abstract. The next chapter grounds the comparison in three concrete districts.&rdquo;]</p>
+    <p>Statewide averages and subgroup gaps are useful but abstract. The next chapter grounds the comparison in three concrete districts &mdash; LAUSD, HISD, and Highland Park ISD &mdash; to show what the structural story looks like at the level of specific schools and specific neighborhoods.</p>
   </section>
 
   <nav class="next" aria-label="Next chapter">
