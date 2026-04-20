@@ -8,6 +8,104 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Four-quadrant strengths/weaknesses grid */
+  .swot {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: var(--space-l) 0;
+  }
+  @media (min-width: 780px) {
+    .swot { grid-template-columns: 1fr 1fr; }
+  }
+  .swot-cell {
+    background: var(--bg);
+    padding: var(--space-m);
+  }
+  .swot-cell .sw-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-m);
+    padding-bottom: var(--space-s);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .swot-cell .sw-state {
+    font-family: var(--f-label);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .swot-cell.is-ca-strength .sw-state,
+  .swot-cell.is-ca-weakness .sw-state { color: var(--ca); }
+  .swot-cell.is-tx-strength .sw-state,
+  .swot-cell.is-tx-weakness .sw-state { color: var(--tx); }
+
+  .swot-cell .sw-kind {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .swot-cell h3 {
+    font-family: var(--f-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0 var(--space-s);
+    letter-spacing: -0.01em;
+  }
+  .swot-cell p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin: 0 0 0.9em;
+  }
+  .swot-cell p:last-child { margin-bottom: 0; }
+
+  /* Weakness cells get a muted variant */
+  .swot-cell.is-weakness { background: var(--bg-alt); }
+
+  /* Big numbered recommendations */
+  .rec {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-s);
+    margin: var(--space-xl) 0;
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--rule);
+  }
+  @media (min-width: 780px) {
+    .rec { grid-template-columns: 90px 1fr; gap: var(--space-l); align-items: start; }
+  }
+  .rec-num {
+    font-family: var(--f-display);
+    font-feature-settings: "lnum" 1;
+    font-size: clamp(3.5rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 0.9;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+  }
+  .rec h3 {
+    font-family: var(--f-display);
+    font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+    font-weight: 500;
+    margin: 0.3rem 0 var(--space-m);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    max-width: 32ch;
+  }
+  .rec p {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 1.1em;
+    max-width: var(--col-read);
+  }
+</style>
 </head>
 <body>
 
@@ -41,87 +139,105 @@
     <div class="chapter">Chapter 09 &middot; Assessment &amp; Recommendations</div>
     <h1>Strengths, weaknesses, and what to change.</h1>
     <p class="question">What are the strengths and weaknesses of each system &mdash; and what should change?</p>
-    <p class="claim">[WRITE YOUR OPENING CLAIM &mdash; 2&ndash;3 sentences summarizing the assessment. Example: &ldquo;Each system has real strengths and real weaknesses, and neither is simply &lsquo;better.&rsquo; California does more to equalize resources but less to coordinate their use; Texas leaves more room for local responsiveness but converts local inequality into educational inequality. The recommendations that follow work from that diagnosis.&rdquo;]</p>
+    <p class="claim">Each system has real strengths and real weaknesses, so the question is not simply whether California or Texas is &ldquo;better.&rdquo; California does more to equalize resources through state funding and need-weighted formulas, but its governance system is complex and does not always ensure that dollars reach the students they are meant to serve. Texas preserves a stronger role for local communities and has a clearer state accountability system, but its finance structure still allows local property wealth to shape educational opportunity.</p>
   </header>
 
+  <!-- ============ FOUR QUADRANTS ============ -->
   <section class="prose-wide">
-    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
-      <div class="card is-ca">
-        <div class="card-head">
-          <span class="card-name">California &middot; Strengths</span>
-          <span class="card-state">CA</span>
+    <h2 style="max-width: var(--col-read); margin: var(--space-l) auto var(--space-m);">A &mdash; What each system does well, and where it falls short</h2>
+
+    <div class="swot">
+      <div class="swot-cell is-ca-strength">
+        <div class="sw-head">
+          <span class="sw-state">California</span>
+          <span class="sw-kind">Strengths</span>
         </div>
-        <div class="todo">
-          <strong>To write &mdash; 3&ndash;4 bullets or short paragraph</strong>
-          Stronger state equalization. Broader public obligation for schooling. Buffering of schools from local wealth inequality. Need-weighted funding via LCFF.
-        </div>
+        <h3>A finance system designed to respond to inequality.</h3>
+        <p>California&rsquo;s biggest strength is that its school finance system does more to buffer schools from local wealth inequality. Because California relies more heavily on state funding than local property taxes, the amount of money available to a district is less directly tied to the property wealth of the surrounding community. This matters because housing markets are deeply unequal, and without state equalization, those inequalities can become school funding inequalities.</p>
+        <p>California also has a broader public obligation built into its education system. Court cases and finance reforms have pushed the state toward the idea that access to public education must mean more than simply having schools open. Through the Local Control Funding Formula, California explicitly recognizes that students with greater needs require greater resources. Low-income students, English learners, and foster youth generate additional funding, which makes the system more equity-oriented than a flat per-pupil model.</p>
+        <p>California&rsquo;s strength, then, is not that it has eliminated inequality. It has not. Its strength is that its finance structure is designed to respond to inequality rather than simply reproduce local tax-base differences.</p>
       </div>
 
-      <div class="card is-ca">
-        <div class="card-head">
-          <span class="card-name">California &middot; Weaknesses</span>
-          <span class="card-state">CA</span>
+      <div class="swot-cell is-ca-weakness is-weakness">
+        <div class="sw-head">
+          <span class="sw-state">California</span>
+          <span class="sw-kind">Weaknesses</span>
         </div>
-        <div class="todo">
-          <strong>To write</strong>
-          Governance complexity (state/county/district layers). Uneven implementation of LCFF&rsquo;s need-weighted dollars at the school site level. High total spending does not automatically produce equal outcomes. Accountability for how money is used is thinner than accountability for whether it was distributed.
-        </div>
+        <h3>Equity on paper does not guarantee equity in practice.</h3>
+        <p>California&rsquo;s main weakness is that equalized funding does not automatically produce equal opportunity. The state may distribute more money according to student need, but the governance structure is complicated. Authority is divided among the state, counties, districts, school boards, charter authorizers, and individual schools. That makes it harder to know who is responsible when resources do not translate into better student outcomes.</p>
+        <p>Another weakness is uneven implementation. LCFF sends additional dollars to districts based on student need, but it is not always easy to track whether those dollars reach the specific schools and students who generated them. This creates a gap between funding equity on paper and educational equity in practice.</p>
+        <p>California also shows that high total spending does not automatically solve achievement gaps. LAUSD has much higher per-student revenue than HISD, but California still faces persistent inequalities by income, race, English learner status, and geography. The state&rsquo;s problem is therefore not only whether money is distributed, but whether governance systems can coordinate how that money is used.</p>
       </div>
 
-      <div class="card is-tx">
-        <div class="card-head">
-          <span class="card-name">Texas &middot; Strengths</span>
-          <span class="card-state">TX</span>
+      <div class="swot-cell is-tx-strength">
+        <div class="sw-head">
+          <span class="sw-state">Texas</span>
+          <span class="sw-kind">Strengths</span>
         </div>
-        <div class="todo">
-          <strong>To write</strong>
-          Clearer local role and local responsiveness. Strong district variation lets communities shape schooling. Real (if uneven) finance reform through litigation. State accountability system is well-defined.
-        </div>
+        <h3>Clear local role, clear state accountability.</h3>
+        <p>Texas&rsquo;s biggest strength is that it preserves a clearer role for local communities. Local districts have a strong identity, and local voters have more direct influence over how schools are funded and governed. In theory, this can make districts more responsive to community priorities and local needs.</p>
+        <p>Texas also has a well-defined statewide accountability system. Through the Texas Education Agency, STAAR testing, and A&ndash;F ratings, the state has a clearer mechanism for measuring and publicly reporting school performance. While accountability systems have limitations, Texas&rsquo;s framework makes expectations visible and gives the state a direct role in monitoring district outcomes.</p>
+        <p>Texas has also gone through real school finance reform. Litigation such as <em>Edgewood</em> forced the state to confront the inequities created by local property wealth. The Foundation School Program and recapture system show that Texas has not ignored equity concerns, even though its reforms remain incomplete.</p>
       </div>
 
-      <div class="card is-tx">
-        <div class="card-head">
-          <span class="card-name">Texas &middot; Weaknesses</span>
-          <span class="card-state">TX</span>
+      <div class="swot-cell is-tx-weakness is-weakness">
+        <div class="sw-head">
+          <span class="sw-state">Texas</span>
+          <span class="sw-kind">Weaknesses</span>
         </div>
-        <div class="todo">
-          <strong>To write</strong>
-          Local wealth still strongly shapes resources. High-need districts have weaker funding capacity. Local control coexists with structural inequality. Recapture equalizes at the top but does not raise the floor enough.
-        </div>
+        <h3>Local control still lets wealth become opportunity.</h3>
+        <p>Texas&rsquo;s main weakness is that local wealth still strongly shapes school resources. Even with recapture, districts located in wealthier communities can often generate stronger local revenue capacity than districts serving poorer communities. This is exactly what the HISD&ndash;Highland Park comparison shows: both districts operate under the same state system, but very different local tax bases produce different levels of per-student funding capacity.</p>
+        <p>A second weakness is that high-need districts can have weaker funding capacity. HISD serves a large urban population with substantial poverty and language-support needs, but it receives far less per-student revenue than LAUSD. This reveals a major structural problem: districts with greater student need do not necessarily receive greater resources.</p>
+        <p>Finally, local control can coexist with structural inequality. Local control sounds democratic, but when local control is tied to local property wealth, it can allow wealthy communities to convert housing advantage into school advantage. Recapture limits some of the most extreme inequality at the top, but it does not necessarily raise the funding floor enough for districts with concentrated poverty and high student need.</p>
       </div>
     </div>
   </section>
 
-  <section class="prose">
-    <h2>Recommendations</h2>
+  <!-- ============ RECOMMENDATIONS ============ -->
+  <section class="prose-wide" style="margin-top: var(--space-xxl);">
+    <h2 style="max-width: var(--col-read); margin: 0 auto var(--space-s);">B &mdash; Recommendations</h2>
+    <p style="max-width: var(--col-read); margin: 0 auto var(--space-l); font-family: var(--f-display); font-style: italic; font-weight: 300; font-size: 1.2rem; line-height: 1.45; color: var(--ink-soft);">Three directions for reform &mdash; two state-specific, one shared.</p>
 
-    <h3>1 &middot; Texas should strengthen state equalization for high-need districts.</h3>
-    <div class="todo">
-      <strong>To write</strong>
-      Concrete mechanism: raise the per-pupil funding floor in the Foundation School Program; expand the need-based weights for English learners and low-income students; use recapture more aggressively as a bottom-up redistributor rather than only a top-down skim. 1&ndash;2 paragraphs, grounded in what your data shows.
-    </div>
+    <article class="rec">
+      <div class="rec-num">01</div>
+      <div>
+        <h3>Texas should strengthen state equalization for high-need districts.</h3>
+        <p>Texas should increase the state&rsquo;s responsibility for funding high-need districts. The most direct mechanism would be to raise the per-pupil funding floor in the Foundation School Program so that districts with weaker local tax bases are not left with substantially lower resource capacity. The goal should not be to eliminate local control entirely, but to make sure that local property wealth does not determine the basic quality of educational opportunity.</p>
+        <p>Texas should also expand need-based weights for students who require additional support, especially low-income students and English learners. HISD&rsquo;s profile shows why this matters: the district has high levels of poverty and language need, yet its per-student revenue remains far below LAUSD&rsquo;s. A stronger state equalization system would recognize that educating students with greater needs costs more.</p>
+        <p>Recapture should also be made more visibly redistributive. Instead of functioning mainly as a mechanism that takes excess revenue from property-wealthy districts, it should be connected more clearly to raising the floor for high-need districts. In other words, Texas should use recapture not only to reduce inequality at the top, but also to increase capacity at the bottom.</p>
+      </div>
+    </article>
 
-    <h3>2 &middot; California should improve governance clarity and accountability for how money is used.</h3>
-    <div class="todo">
-      <strong>To write</strong>
-      Equalized dollars don&rsquo;t help if they do not reach the students they were weighted for. Recommendations: better site-level reporting, tighter linkage between LCFF supplemental/concentration grants and the services students actually receive, clearer lines of accountability between district and school. 1&ndash;2 paragraphs.
-    </div>
+    <article class="rec">
+      <div class="rec-num">02</div>
+      <div>
+        <h3>California should improve governance clarity and accountability for how money is used.</h3>
+        <p>California&rsquo;s main challenge is not only distributing money more fairly, but ensuring that the money actually reaches the students and schools it is intended to help. LCFF is built around an equity logic, but equalized dollars do not help if they disappear into district-wide budgets without clear evidence of how they support low-income students, English learners, and foster youth.</p>
+        <p>California should improve site-level reporting so that families, educators, and policymakers can see how supplemental and concentration grant dollars are used at the school level. The state should require clearer links between need-weighted funding and the actual services students receive, such as tutoring, bilingual education, counseling, extended learning time, or family support programs.</p>
+        <p>California also needs clearer lines of accountability between the state, districts, and schools. Right now, governance complexity can make responsibility difficult to locate. If outcomes do not improve for high-need students, it should be clear whether the problem is state formula design, district allocation decisions, weak implementation, or school-level capacity. Stronger accountability for use &mdash; not just distribution &mdash; would make California&rsquo;s equity model more effective.</p>
+      </div>
+    </article>
 
-    <h3>3 &middot; Both states should invest earlier in opportunity gaps rather than waiting for later achievement gaps.</h3>
-    <div class="todo">
-      <strong>To write</strong>
-      Pre-K access, wraparound services, teacher recruitment into high-need schools. 1&ndash;2 paragraphs.
-    </div>
+    <article class="rec">
+      <div class="rec-num">03</div>
+      <div>
+        <h3>Both states should invest earlier in opportunity gaps rather than waiting for later achievement gaps.</h3>
+        <p>Both Texas and California should invest more heavily in early opportunity. Many achievement gaps are visible by the time students enter formal schooling, which means K&ndash;12 systems are often trying to correct inequalities that began much earlier. Expanding access to high-quality pre-K, early literacy support, and family-centered services would address inequality before it becomes harder to reverse.</p>
+        <p>Both states should also strengthen wraparound services in high-need schools. Poverty affects learning through housing instability, food insecurity, health needs, transportation barriers, and family stress. Schools serving high-poverty communities therefore need more than classroom funding alone. Counseling, health services, after-school programs, and family engagement supports should be treated as part of educational opportunity, not as optional extras.</p>
+        <p>Finally, both states should focus on teacher recruitment and retention in high-need schools. Funding formulas matter, but students experience policy through classrooms. If high-need schools cannot attract and keep experienced teachers, additional money will not translate into equal opportunity. Targeted teacher incentives, mentoring, smaller class sizes in early grades, and stronger professional support should be central parts of each state&rsquo;s equity strategy.</p>
+      </div>
+    </article>
   </section>
 
+  <!-- ============ CONCLUSION ============ -->
   <div class="takeaway">
     <div class="t-label">Conclusion</div>
     <blockquote>
-      [WRITE YOUR FINAL SENTENCE. It should directly answer the main question of the project. One sentence, quotable, that could be pulled as a takeaway. Example: &ldquo;The real question is not whether to fund schools locally or from the state, but whether a given structure lets local wealth become local destiny &mdash; and Texas&rsquo;s does, while California&rsquo;s, imperfectly, does not.&rdquo;]
+      The real question is not whether schools should be funded locally or by the state, but whether a system allows local wealth to become local destiny &mdash; and Texas&rsquo;s system does so more directly, while California&rsquo;s system, imperfectly, works harder to interrupt that link.
     </blockquote>
   </div>
 
-  <nav class="next" aria-label="Next chapter">
+  <nav class="next" aria-label="Sources">
     <a href="sources.html">
       <span class="next-label">Final &middot; Chapter 10</span>
       <span class="next-title">Sources &amp; Methods</span>
