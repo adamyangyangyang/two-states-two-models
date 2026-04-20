@@ -8,6 +8,133 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Per-district page layout: map on one side, data + narrative on the other */
+  .district {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-l);
+    margin: var(--space-xl) 0;
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--rule);
+  }
+  @media (min-width: 860px) {
+    .district { grid-template-columns: 1fr 1.4fr; gap: var(--space-xl); align-items: start; }
+  }
+  .district-map figure { margin: 0; }
+  .district-map img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule-soft);
+    background: var(--bg-sunk);
+  }
+  .district-map .fig-label {
+    margin-bottom: var(--space-s);
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--f-label);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .district-map .fig-num { color: var(--ink); font-weight: 600; margin-right: 0.8rem; }
+  .district-map .fig-caption {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    margin-top: var(--space-s);
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .district-body .d-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: var(--space-s);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: var(--space-m);
+  }
+  .district-body .d-name {
+    font-family: var(--f-display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1;
+  }
+  .district-body .d-state {
+    font-family: var(--f-label);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .district-body.is-ca .d-state { color: var(--ca); }
+  .district-body.is-tx .d-state { color: var(--tx); }
+
+  .d-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--space-m);
+    font-size: 0.95rem;
+  }
+  .d-table td {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  .d-table td:first-child {
+    font-family: var(--f-label);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    width: 42%;
+    padding-right: 1rem;
+  }
+  .d-table td:last-child {
+    font-family: var(--f-display);
+    font-feature-settings: "lnum" 1, "tnum" 1;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .d-narrative p { font-size: 1rem; line-height: 1.6; margin-bottom: 0.9em; }
+
+  .sidebar {
+    background: var(--bg-alt);
+    border-left: 3px solid var(--ca-mid);
+    padding: var(--space-m);
+    margin: var(--space-xl) 0;
+    max-width: var(--col-read);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sidebar .sb-label {
+    font-family: var(--f-label);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+  .sidebar h3 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    font-family: var(--f-display);
+    font-weight: 500;
+  }
+  .sidebar p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 0.8em;
+  }
+  .sidebar p:last-child { margin-bottom: 0; }
+</style>
 </head>
 <body>
 
@@ -41,89 +168,141 @@
     <div class="chapter">Chapter 07 &middot; The District Lens</div>
     <h1>Three districts, two states, one argument.</h1>
     <p class="question">What do LAUSD, HISD, and Highland Park show us about how state systems operate on the ground?</p>
-    <p class="claim">[WRITE YOUR OPENING CLAIM &mdash; 2&ndash;3 sentences. Example: &ldquo;Abstractions about &lsquo;state structure&rsquo; become concrete in individual districts. LAUSD shows California&rsquo;s state-buffered model in action; HISD shows the limits of Texas&rsquo;s local-tax model in a high-need urban district; Highland Park shows what the same Texas rules look like when the tax base is wealthy instead.&rdquo;]</p>
+    <p class="claim">Abstractions about &ldquo;state structure&rdquo; become concrete when we look at individual districts. LAUSD shows California&rsquo;s state-buffered model in action: a high-need urban district with relatively high per-student revenue because the state plays a major role in funding. HISD shows the limits of Texas&rsquo;s local-tax-heavy model in a high-need urban district. Highland Park ISD shows what the same Texas rules look like when the local tax base is wealthy.</p>
   </header>
 
-  <section class="prose-wide">
-    <div class="cards">
-      <div class="card is-ca">
-        <div class="card-head">
-          <span class="card-name">LAUSD</span>
-          <span class="card-state">California</span>
-        </div>
-        <dl>
-          <dt>State share of revenue</dt>
-          <dd>54%</dd>
-          <dt>Local share</dt>
-          <dd>26%</dd>
-          <dt>Per-student revenue</dt>
-          <dd>$28,702</dd>
-          <dt>Student demographics</dt>
-          <dd style="font-size: 0.92rem; font-weight: 400;">[FILL IN &mdash; % Latino, % low-income, % English learner]</dd>
-          <dt>Median home value (context)</dt>
-          <dd style="font-size: 0.92rem; font-weight: 400;">[FILL IN from Zillow or Census ACS]</dd>
-        </dl>
-        <p class="card-note">[FILL IN &mdash; 2&ndash;3 sentences interpreting the card. Illustrate: major urban district in a state-funded system; high need but relatively high resource capacity because the state is buffering local wealth inequality.]</p>
+  <!-- ============ LAUSD ============ -->
+  <section class="district">
+    <div class="district-map">
+      <figure>
+        <figcaption class="fig-label">
+          <span><span class="fig-num">Fig. 7.1</span>LAUSD</span>
+          <span>Los Angeles County</span>
+        </figcaption>
+        <img src="images/lausd-map.png" alt="Map of the Los Angeles Unified School District in Los Angeles County, California.">
+        <div class="fig-caption">Los Angeles Unified is the second-largest school district in the United States, serving much of the City of Los Angeles and surrounding communities.</div>
+      </figure>
+    </div>
+
+    <div class="district-body is-ca">
+      <div class="d-head">
+        <span class="d-name">LAUSD</span>
+        <span class="d-state">California</span>
       </div>
 
-      <div class="card is-tx">
-        <div class="card-head">
-          <span class="card-name">HISD</span>
-          <span class="card-state">Texas</span>
-        </div>
-        <dl>
-          <dt>State share of revenue</dt>
-          <dd>8%</dd>
-          <dt>Local share</dt>
-          <dd>69%</dd>
-          <dt>Per-student revenue</dt>
-          <dd>$15,124</dd>
-          <dt>Student demographics</dt>
-          <dd style="font-size: 0.92rem; font-weight: 400;">[FILL IN &mdash; % Latino, % low-income, % English learner]</dd>
-          <dt>Median home value (context)</dt>
-          <dd style="font-size: 0.92rem; font-weight: 400;">[FILL IN from Zillow or Census ACS]</dd>
-        </dl>
-        <p class="card-note">[FILL IN &mdash; 2&ndash;3 sentences. Illustrate: major urban district in a local-tax-heavy state; high poverty and lower resource capacity; urban needs with a weaker funding base.]</p>
-      </div>
+      <table class="d-table">
+        <tbody>
+          <tr><td>State share of revenue</td><td>54%</td></tr>
+          <tr><td>Local share of revenue</td><td>26%</td></tr>
+          <tr><td>Per-student revenue</td><td>$28,702</td></tr>
+          <tr><td>Student demographics</td><td style="font-size: 0.9rem; line-height: 1.4;">73% Latino &middot; 83% low-income &middot; 18% English learners</td></tr>
+          <tr><td>Median home value (context)</td><td>$753,600</td></tr>
+        </tbody>
+      </table>
 
-      <div class="card is-tx">
-        <div class="card-head">
-          <span class="card-name">Highland Park ISD</span>
-          <span class="card-state">Texas (within-state contrast)</span>
-        </div>
-        <dl>
-          <dt>State share of revenue</dt>
-          <dd style="font-size: 0.92rem; font-weight: 400;">[FILL IN &mdash; low; district is mostly self-funded locally]</dd>
-          <dt>Local share</dt>
-          <dd style="font-size: 0.92rem; font-weight: 400;">[FILL IN &mdash; high, subject to recapture]</dd>
-          <dt>Per-student revenue</dt>
-          <dd style="font-size: 0.92rem; font-weight: 400;">[FILL IN]</dd>
-          <dt>Student demographics</dt>
-          <dd style="font-size: 0.92rem; font-weight: 400;">[FILL IN &mdash; majority white, high-income]</dd>
-          <dt>Median home value (context)</dt>
-          <dd style="font-size: 0.92rem; font-weight: 400;">[FILL IN &mdash; high]</dd>
-        </dl>
-        <p class="card-note">[FILL IN &mdash; 2&ndash;3 sentences. Illustrate: affluent district operating under the <em>same</em> Texas rules as HISD. Local wealth translates into stronger per-pupil capacity. Shows that state structure plus an unequal tax base produces unequal outcomes <em>within the same state</em>.]</p>
+      <div class="d-narrative">
+        <p>LAUSD illustrates California&rsquo;s state-buffered funding model. Even though LAUSD serves a large, urban, high-need student population, it receives a majority of its revenue from the state rather than depending mainly on local property taxes. This matters because California&rsquo;s funding structure partially separates school resources from local property wealth, giving LAUSD a much higher per-student revenue capacity than HISD despite both districts serving large urban populations.</p>
+
+        <p>At the same time, LAUSD is not a low-need district. Its student population is majority Latino, overwhelmingly low-income, and includes a substantial English learner population. This means LAUSD&rsquo;s relatively high per-student revenue should not be read simply as &ldquo;extra money,&rdquo; but as funding capacity needed to serve a large and complex urban student body.</p>
       </div>
     </div>
   </section>
 
-  <section class="prose">
+  <!-- ============ HISD ============ -->
+  <section class="district">
+    <div class="district-map">
+      <figure>
+        <figcaption class="fig-label">
+          <span><span class="fig-num">Fig. 7.2</span>HISD</span>
+          <span>Harris County</span>
+        </figcaption>
+        <img src="images/hisd-map.png" alt="Map of the Houston Independent School District in Harris County, Texas.">
+        <div class="fig-caption">Houston Independent is the largest school district in Texas and one of the ten largest in the country, covering much of the City of Houston.</div>
+      </figure>
+    </div>
+
+    <div class="district-body is-tx">
+      <div class="d-head">
+        <span class="d-name">HISD</span>
+        <span class="d-state">Texas</span>
+      </div>
+
+      <table class="d-table">
+        <tbody>
+          <tr><td>State share of revenue</td><td>8%</td></tr>
+          <tr><td>Local share of revenue</td><td>69%</td></tr>
+          <tr><td>Per-student revenue</td><td>$15,124</td></tr>
+          <tr><td>Student demographics</td><td style="font-size: 0.9rem; line-height: 1.4;">60.5% Hispanic &middot; 77.1% economically disadvantaged &middot; 36.8% English learners</td></tr>
+          <tr><td>Median home value (context)</td><td>$246,400</td></tr>
+        </tbody>
+      </table>
+
+      <div class="d-narrative">
+        <p>HISD illustrates a different model. Like LAUSD, it is a major urban district with high student need, but unlike LAUSD, it receives only a small share of its revenue from the state and depends heavily on local revenue. Because local funding in Texas is closely tied to property-tax capacity, HISD&rsquo;s lower housing values and higher poverty context help explain why its per-student revenue is much lower than LAUSD&rsquo;s.</p>
+
+        <p>This makes HISD especially important for the project&rsquo;s argument. It shows that student need and funding capacity do not automatically move together. HISD serves a student population with substantial economic and language-support needs, yet its local-tax-heavy funding structure produces much less per-student revenue than LAUSD&rsquo;s more state-supported model.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HIGHLAND PARK ============ -->
+  <section class="district">
+    <div class="district-map">
+      <figure>
+        <figcaption class="fig-label">
+          <span><span class="fig-num">Fig. 7.3</span>Highland Park ISD</span>
+          <span>Dallas County</span>
+        </figcaption>
+        <img src="images/highland-park-map.png" alt="Map of Highland Park Independent School District in Dallas County, Texas.">
+        <div class="fig-caption">Highland Park ISD is a small, affluent district in Dallas County serving the communities of Highland Park and University Park.</div>
+      </figure>
+    </div>
+
+    <div class="district-body is-tx">
+      <div class="d-head">
+        <span class="d-name">Highland Park ISD</span>
+        <span class="d-state">Texas &middot; Within-state contrast</span>
+      </div>
+
+      <table class="d-table">
+        <tbody>
+          <tr><td>State share of revenue</td><td>6%</td></tr>
+          <tr><td>Local share of revenue</td><td>91%</td></tr>
+          <tr><td>Per-student revenue</td><td>$16,387</td></tr>
+          <tr><td>Student demographics</td><td style="font-size: 0.9rem; line-height: 1.4;">80.8% white &middot; 0.7% economically disadvantaged &middot; 1.5% English learners</td></tr>
+          <tr><td>Median home value (context)</td><td>$1,731,100</td></tr>
+        </tbody>
+      </table>
+
+      <div class="d-narrative">
+        <p>Highland Park ISD is not used here as a representative Texas district. Instead, it is a within-Texas contrast that shows what happens when the same Texas funding rules operate in a much wealthier community. Compared with HISD, Highland Park has far higher local property wealth, much lower poverty, and a student population with far fewer economically disadvantaged and English learner students.</p>
+
+        <p>The funding pattern reflects that difference. Highland Park receives 91% of its revenue from local sources and only 6% from the state, while still reporting higher per-student revenue than HISD. It also operates as a recapture district, meaning it collects a large amount of local property-tax revenue and sends part of it back to the state for redistribution. This makes Highland Park a useful example of how local wealth remains powerful inside the Texas system, even with recapture.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SYNTHESIS ============ -->
+  <section class="prose" style="margin-top: var(--space-xxl);">
     <h2>What these three districts show together</h2>
-    <div class="todo">
-      <strong>To write</strong>
-      2&ndash;3 paragraphs synthesizing the three cards. The move here is: the LAUSD&ndash;HISD contrast shows <em>state structure</em>; the HISD&ndash;Highland Park contrast shows <em>tax base under a single state structure</em>. Together they isolate the mechanism.
-    </div>
 
-    <h2 style="margin-top: var(--space-xl);">Optional: political context</h2>
-    <div class="todo">
-      <strong>Sidebar idea &mdash; use only if useful</strong>
-      Your voting analysis fits best as a short sidebar here. Both LAUSD and HISD are urban and lean Democratic, so a direct voting&rarr;outcomes story gets muddy. Highland Park differs politically and in tax base, making tax base the cleaner variable. 1 short paragraph acknowledging this complication is honest and strong.
-    </div>
+    <p>Taken together, these three districts help isolate the mechanism behind the broader Texas&ndash;California comparison. The LAUSD&ndash;HISD contrast shows how two large urban districts with substantial student need can end up with very different resource levels because they sit inside different state finance systems. LAUSD is embedded in a California system where the state plays a much larger role in school revenue. HISD is embedded in a Texas system where local property-tax revenue plays a much larger role.</p>
+
+    <p>The HISD&ndash;Highland Park contrast then shows that the issue is not only California versus Texas. It is also about what happens within Texas when the same state rules meet very different local economic conditions. HISD&rsquo;s lower home values and higher poverty weaken its local revenue capacity, while Highland Park&rsquo;s high property wealth allows it to generate stronger local resources. In that sense, Highland Park helps prove the argument more clearly: Texas&rsquo;s funding structure does not affect all districts equally because local tax bases are unequal.</p>
+
+    <p>Together, the three cases show that school funding differences are shaped by the interaction between state policy design and local economic context. California&rsquo;s model does more to buffer local inequality through state funding, while Texas&rsquo;s model leaves more room for local property wealth to shape district resources. The result is that students&rsquo; educational resource capacity is not determined only by their needs, but also by the wealth and funding rules of the communities in which they attend school.</p>
   </section>
 
+  <!-- ============ POLITICAL CONTEXT SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="sb-label">Sidebar &middot; Political context</div>
+    <h3>Voting patterns are context, not explanation.</h3>
+    <p>In the voting data collected earlier, LAUSD and HISD both leaned strongly Democratic in the selected urban precincts, even though their school finance systems differ. That suggests urban political context may be a confounding variable: large city districts may share voting patterns even when they operate under different state funding structures.</p>
+    <p>Highland Park differs politically and economically, but for this project, the cleaner explanatory variable is the tax base, not voting alone. Political geography is worth noting, but it is not the mechanism.</p>
+  </aside>
+
   <section class="prose">
-    <p>[Closing transition. Example: &ldquo;The next chapter steps back from these specific districts to ask what the broader literature says about finance, governance, and educational opportunity.&rdquo;]</p>
+    <p>The next chapter steps back from these specific districts to ask what the broader literature says about finance, governance, and educational opportunity.</p>
   </section>
 
   <nav class="next" aria-label="Next chapter">
